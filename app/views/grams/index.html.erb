@@ -1,0 +1,57 @@
+<br />
+
+<%= link_to 'Reload Pics', root_path, class: 'btn my-btn btn-lg col-10 offset-1 col-sm-6 offset-sm-3 text-center' %>
+
+<div class="row">
+		<% @grams.shuffle.each do | gram | %>
+		<div class="col-10 offset-1 col-sm-5 offset-sm-1 ml-auto mr-auto">
+		<div class="card">
+			<div class="user text-right">
+				<%= gram.user.email %>
+			</div>
+			<%= link_to gram_path(gram) do %>
+			<%= image_tag gram.picture.url, class: 'img-fluid' %>
+			<% end %>
+			<p>
+				<% if gram.message.present? %>
+					<%= gram.message %>
+				<% else %>
+					<br />
+				<% end %>
+			</p>
+			<div class="gram-actions text-right">
+				<% if current_user && current_user == gram.user %>
+					<br />
+					<%= link_to 'Edit', edit_gram_path(gram), class: 'btn btn-primary btn-sm btn-edit' %>
+					<%= link_to 'Delete', gram_path(gram), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm btn-delete' %>
+					<br />
+				<% end %>
+				<br />
+			</div>
+	<hr />
+			<div class="comments">
+				<h3>Comments</h3>
+
+				<% gram.comments.each do |comment| %>
+					<div class="comment">
+						<span class="comment_user">
+							<%= comment.user.username %><br />
+						</span>
+						<span class="c_message offset-1">
+							<%= comment.message %>
+						</span>
+					</div>
+				<% end %>
+
+				<%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
+					<br />
+					<%= f.input :message, label: 'Add Comment' %>
+					<%= f.submit "Submit", class: "btn btn-primary btn-edit float-right", style: "cursor: pointer;" %>
+				<% end %>
+			</div>
+
+		</div>
+		<br />
+		</div>
+		<% end %>
+</div>

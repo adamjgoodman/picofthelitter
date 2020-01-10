@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pic of the Litter</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <!-- Navigation Bar --> 
+      <nav class="navbar navbar-toggleable-md navbar-light", style="color:white;">
+        <%= link_to root_path, class: 'logo' do %>
+          <b style="color:#3e3666;">pic <span class="fas fa-paw"></span><br/> of the litter</b>
+        <% end %>
+        <% if user_signed_in? %>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <%= link_to new_gram_path, class: 'nav-link' do %>
+                <span class="fas fa-plus-circle"></span><span class="share">&nbspnew pic</span>
+              <% end %>
+            </li>
+          </ul>
+        <% end %>
+
+
+          <!-- Devise Login -->
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
+            <% else %>
+              <li class="nav-item signs">
+                <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+              </li>
+            <% end %>
+          </ul>
+      </nav>
+
+
+    <!-- Flash Messages -->
+    <% if notice.present? %>
+      <p class="alert alert-info"><%= notice %></p>
+    <% end %> 
+
+    <% if alert.present? %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+</html>
