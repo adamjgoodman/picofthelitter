@@ -84,3 +84,5 @@ gem 'carrierwave', '~> 2.0'
 gem "figaro"
 
 gem "fog-aws"
+
+gem 'will_paginate', '~> 3.1.0'

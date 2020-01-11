@@ -13,6 +13,10 @@ body {
   text-decoration: none;
 }
 
+.logo {
+  font-size: 22px;
+}
+
 .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover, .navbar-light .navbar-toggler:focus, .navbar-light .navbar-toggler:hover {
     color: white;
 }
@@ -60,7 +64,7 @@ body {
 .navbar-light .navbar-nav .nav-link {
     color: #3e3666;
     letter-spacing: 1px;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .card {
@@ -75,14 +79,14 @@ body {
 .user {
   margin: 10px;
   color: #125688;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
 }
 
 .comment_user {
   margin: 10px;
   color: #125688;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
 }
 
@@ -124,6 +128,10 @@ h1 {
   font-weight: 500;
 }
 
+label {
+  font-size: 20px;
+}
+
 .form-check-input {
     margin-top: 0.25rem;
     margin-left: 0.0rem;
@@ -160,7 +168,7 @@ h1 {
 }
 
 .comment {
-  font-size: 15px;
+  font-size: 16px;
   margin-bottom: 10px;
 }
 
@@ -182,12 +190,34 @@ hr {
   height: 1px;
 }
 
+.hr_solid {
+  margin-top: 10px;
+  margin-bottom: 0rem;
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color: lightgray;
+  color: black;
+  height: 1px;
+}
+
 @media only screen and (max-width: 600px) {
   .userless {
     left: 5%;
   }
 }
 
+.img-fluid {
+    max-width: 100%;
+    min-width: 100%;
+    height: auto;
+}
+
 .signs {
   margin-right: 15px;
+}
+
+.pagination {
+  display: block;
 }

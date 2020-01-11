@@ -1,1 +1,52 @@
-<%= @gram.picture %>
+<div class="col-10 offset-1 col-sm-6 offset-sm-3 ml-auto mr-auto">
+	<div class="card">
+		<div class="user text-right">
+			<%= @gram.user.username %>
+		</div>
+		<%= image_tag @gram.picture.url, class: 'img-fluid' %>
+			<p>
+				<% if @gram.message.present? %>
+					<%= @gram.message %>
+				<% else %>
+					<br />
+				<% end %>
+			</p>
+		<div class="gram-actions text-right">
+			<% if current_user && current_user == @gram.user %>
+				<br />
+				<%= link_to 'Edit', edit_gram_path(@gram), class: 'btn btn-primary btn-sm btn-edit' %>
+				<%= link_to 'Delete', gram_path(@gram), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm btn-delete' %>
+				<br />
+			<% end %>
+			<br />
+		</div>
+
+		<hr />
+
+		<div class="comments">
+			<h3>Comments</h3>
+			<% @comments.each do |comment| %>
+
+				<div class="comment">
+					<span class="comment_user">
+						<%= comment.user.username %><br />
+					</span>
+					<span class="c_message offset-1">
+						<%= comment.message %>
+					</span>
+				</div>
+			<% end %>
+
+			<%= will_paginate @comments %>
+
+			<%= simple_form_for Comment.new, url: gram_comments_path(@gram) do |f| %>
+					<br />
+					<%= f.input :message, label: 'Add Comment' %>
+					<%= f.submit "Submit", class: "btn my-btn float-right", style: "cursor: pointer;" %>
+			<% end %>
+
+		</div>
+
+	</div>
+</div>
+
