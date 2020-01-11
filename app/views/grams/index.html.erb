@@ -30,7 +30,7 @@
 				</div>
 
 				<% gram.comments.order(id: :desc).limit(2).each do |comment| %>
-					<div class="comment">
+					<div class="comment col-12">
 						<span class="comment_user">
 							<%= comment.user.username %><br />
 						</span>
@@ -44,3 +44,4 @@
 		</div>
 	<% end %>
 </div>
+<br />
