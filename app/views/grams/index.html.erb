@@ -1,13 +1,24 @@
-<br />
-
-<%= link_to 'Reload Pics', root_path, class: 'btn my-btn btn-lg col-10 offset-1 col-sm-6 offset-sm-3 text-center' %>
+<div class="col-12 row subnav">
+	<h5 class="offset-1 mr-2 mt-1">Breed:</h5>
+	<select class="custom-select breed_drop" data-live-search="true">
+		<% Gram.new do |gram| %>
+			<% gram.breeds.each do |breed| %>
+				<option><%= breed.join('') %></option>
+			<% end %>
+		<% end %>
+	</select>
+	<%= link_to 'Go', root_path, class: 'btn-edit btn ml-2', style: 'height: 30px; line-height: 0.9;' %>
+</div>
 
 <div class="row">
 	<% @grams.shuffle.each do | gram | %>
 		<div class="col-10 offset-1 col-sm-6 offset-sm-1 col-md-3 offset-md-1 ml-auto mr-auto">
 			<div class="card">
-				<div class="user text-right">
+				<div class="text-right date mb-0 mt-1">
 					<%= gram.user.username %>
+				</div>
+				<div class="text-right user mt-0 mb-1" style="color:black; font-weight: normal;">
+					<%= gram.created_at.strftime('%B %d, %Y') %>
 				</div>
 				<%= link_to gram_path(gram) do %>
 					<%= image_tag gram.picture.url, class: 'img-fluid' %>

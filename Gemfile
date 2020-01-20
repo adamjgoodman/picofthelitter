@@ -90,3 +90,8 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'httparty'
 
 gem 'csv'
+
+gem 'jquery-rails'
+
+gem 'bootstrap-select-rails'
+
