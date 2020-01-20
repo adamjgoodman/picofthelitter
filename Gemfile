@@ -86,3 +86,7 @@ gem "figaro"
 gem "fog-aws"
 
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'httparty'
+
+gem 'csv'

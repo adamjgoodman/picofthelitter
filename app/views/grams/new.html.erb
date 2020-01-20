@@ -2,6 +2,7 @@
 	<h2>new pic</h2>
 	<%= simple_form_for @gram do |f| %>
 		<br />
+		<%= f.input :breed, as: :select, collection: @gram.breeds, :include_blank => false %>
 		<%= f.input :message, label: 'Caption' %>
 		<%= f.input :picture %>
 		<%= f.submit "share pic", class: "my-btn" %>

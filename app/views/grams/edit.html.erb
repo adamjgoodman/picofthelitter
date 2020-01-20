@@ -2,6 +2,7 @@
 	<h1>Edit Share</h1>
 	<%= simple_form_for @gram do | f | %>
 		<br />
+		<%= f.input :breed, as: :select, collection: @gram.breeds, :include_blank => false %>
 		<%= f.input :message %>
 		<%= f.input :picture %>
 		<%= f.submit "Update", class: "my-btn" %>
