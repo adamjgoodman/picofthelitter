@@ -85,8 +85,13 @@ body {
   padding: 0;
 }
 
-.breed_drop {
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.25rem + 2px);
   width: 200px;
+}
+
+.form-inline div { 
+  display: inline-block 
 }
 
 .user {

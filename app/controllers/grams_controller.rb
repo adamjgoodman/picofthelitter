@@ -1,7 +1,12 @@
 class GramsController < ApplicationController
+	before_action :get_breeds
 
 	def index
-		@grams = Gram.all
+		if params[:query]
+			@grams = Gram.where(breed: params[:query])
+		else
+			@grams = Gram.all
+		end
 	end
 
 	def new
@@ -49,10 +54,18 @@ class GramsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def get_breeds
+		@breeds = []
+
+		CSV.foreach('app/assets/breeds/breeds.csv', encoding: 'iso-8859-1:utf-8') do |row|
+			@breeds << row
+		end
+	end
+
 private
 
 	def gram_params
-		params.require(:gram).permit(:message, :picture)
+		params.require(:gram).permit(:message, :picture, :breed)
 	end
 
 end

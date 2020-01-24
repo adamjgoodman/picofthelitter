@@ -1,13 +1,11 @@
 <div class="col-12 row subnav">
 	<h5 class="offset-1 mr-2 mt-1">Breed:</h5>
 	<select class="custom-select breed_drop" data-live-search="true">
-		<% Gram.new do |gram| %>
-			<% gram.breeds.each do |breed| %>
-				<option><%= breed.join('') %></option>
-			<% end %>
+		<% @breeds.each do |breed| %>
+			<option><%= breed.join('') %></option>
 		<% end %>
 	</select>
-	<%= link_to 'Go', root_path, class: 'btn-edit btn ml-2', style: 'height: 30px; line-height: 0.9;' %>
+	<%= link_to 'Go', root_path(query: 'Mixed/Unknown'), class: 'btn-edit btn ml-2', style: 'height: 30px; line-height: 0.9;' %>
 </div>
 
 <div class="row">
