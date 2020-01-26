@@ -41,7 +41,7 @@
 
 			<%= simple_form_for Comment.new, url: gram_comments_path(@gram) do |f| %>
 					<br />
-					<%= f.input :message, label: 'Add Comment' %>
+					<%= f.input :message, label: 'Add Comment', style: 'width: 90% !important;' %>
 					<%= f.submit "Submit", class: "btn my-btn float-right", style: "cursor: pointer;" %>
 			<% end %>
 

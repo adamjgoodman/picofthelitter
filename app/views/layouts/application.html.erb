@@ -47,7 +47,7 @@
       <% if current_page?(controller: 'grams', action: 'index') %>
         <div class="row subnav">
           <h5 class="offset-1 mr-2 mt-1">Breed:</h5>
-          <input class="form-control" type="text" placeholder="Breed">
+          <input class="form-control breed" type="text" placeholder="Breed">
           <%= link_to 'Go', root_path(query: 'Shih Tzu'), class: 'btn-edit btn ml-2', style: 'height: 30px; line-height: 0.9;' %>
         </div>
       <% end%>
