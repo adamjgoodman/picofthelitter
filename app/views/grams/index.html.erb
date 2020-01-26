@@ -20,9 +20,21 @@
 				
 				<% if gram.comments.present? %>
 					<hr class="hr_solid mt-0" />
+
+					<% gram.comments.order(id: :desc).limit(2).each do |comment| %>
+						<div class="comment col-12 mt-2">
+							<span class="comment_user">
+								<%= comment.user.username %><br />
+							</span>
+							<span class="c_message offset-1 mb-0">
+								<%= comment.message %>
+							</span>
+						</div>
+					<% end %>
+
 					<%= link_to gram_path(gram) do %>
-						<div class="text-right user">
-							See Comments
+						<div class="text-right comment_user mt-0">
+							See More Comments
 						</div>
 					<% end %>
 				<% end %>
