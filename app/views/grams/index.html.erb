@@ -1,18 +1,8 @@
-<div class="col-12 row subnav">
-	<h5 class="offset-1 mr-2 mt-1">Breed:</h5>
-	<select class="custom-select breed_drop" data-live-search="true">
-		<% @breeds.each do |breed| %>
-			<option><%= breed.join('') %></option>
-		<% end %>
-	</select>
-	<%= link_to 'Go', root_path(query: 'Mixed/Unknown'), class: 'btn-edit btn ml-2', style: 'height: 30px; line-height: 0.9;' %>
-</div>
-
 <div class="row">
 	<% @grams.shuffle.each do | gram | %>
 		<div class="col-10 offset-1 col-sm-6 offset-sm-1 col-md-3 offset-md-1 ml-auto mr-auto">
 			<div class="card">
-				<div class="text-right date mb-0 mt-1">
+				<div class="text-right user mb-0 mt-1">
 					<%= gram.user.username %>
 				</div>
 				<div class="text-right user mt-0 mb-1" style="color:black; font-weight: normal;">
@@ -21,34 +11,21 @@
 				<%= link_to gram_path(gram) do %>
 					<%= image_tag gram.picture.url, class: 'img-fluid' %>
 				<% end %>
-				<p>
+				<p class="pb-2">
 					<% if gram.message.present? %>
 						<%= gram.message %>
-						<hr class="hr_solid" />
-					<% else %>
 						<br />
 					<% end %>
 				</p>
-				<div class="gram-actions text-right">
-					<% if current_user && current_user == gram.user %>
-						<br />
-						<%= link_to 'Edit', edit_gram_path(gram), class: 'btn btn-primary btn-sm btn-edit' %>
-						<%= link_to 'Delete', gram_path(gram), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm btn-delete' %>
-						<br />
+				
+				<% if gram.comments.present? %>
+					<hr class="hr_solid mt-0" />
+					<%= link_to gram_path(gram) do %>
+						<div class="text-right user">
+							See Comments
+						</div>
 					<% end %>
-				</div>
-
-				<% gram.comments.order(id: :desc).limit(2).each do |comment| %>
-					<div class="comment col-12">
-						<span class="comment_user">
-							<%= comment.user.username %><br />
-						</span>
-						<span class="c_message offset-1">
-							<%= comment.message %>
-						</span>
-					</div>
 				<% end %>
-
 			</div>
 		</div>
 	<% end %>

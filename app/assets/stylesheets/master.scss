@@ -94,6 +94,11 @@ select.form-control:not([size]):not([multiple]) {
   display: inline-block 
 }
 
+.form-control {
+  width: 200px;
+  height: 30px;
+}
+
 .user {
   margin: 10px;
   color: #125688;

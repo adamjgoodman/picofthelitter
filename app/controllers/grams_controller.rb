@@ -25,7 +25,7 @@ class GramsController < ApplicationController
 	def show
 		@gram = Gram.find_by_id(params[:id])
 		return render_not_found if @gram.blank?
-		@comments = @gram.comments.order('created_at DESC').paginate(:per_page => 2, :page => params[:page])
+		@comments = @gram.comments.order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
 	end
 
 	def edit
