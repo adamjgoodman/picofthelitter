@@ -4,4 +4,4 @@ Rails.application.routes.draw do
 		resources :grams do
 		resources :comments, only: :create
 		end
-end
+	end
