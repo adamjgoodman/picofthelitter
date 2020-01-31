@@ -1,9 +1,9 @@
-<div class="col-12 text-center">
+<div class="col-12 ml-auto mr-auto">
 <div class="grid">
 	<% @grams.shuffle.each do | gram | %>
 			<div class="grid-item card">
 				<%= link_to gram_path(gram) do %>
-					<%= image_tag gram.picture.url, class: 'img-fluid' %>
+					<%= image_tag gram.picture.url, class: 'img-fluid', style: 'min-width: 20%;' %>
 				<% end %>
 				<div class="col-12 mt-1 caption text-center">
 					<% if gram.message.present? %>
