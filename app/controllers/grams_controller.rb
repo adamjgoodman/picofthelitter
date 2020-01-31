@@ -3,9 +3,9 @@ class GramsController < ApplicationController
 
 	def index
 		if params[:query]
-			@grams = Gram.where("breed like?", "%#{params[:query]}%")
+			@grams = Gram.where("breed like?", "%#{params[:query]}%").order("created_at DESC")
 		else
-			@grams = Gram.all
+			@grams = Gram.order("created_at DESC")
 		end
 	end
 
