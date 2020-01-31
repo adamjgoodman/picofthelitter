@@ -5,15 +5,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <%= javascript_include_tag 'application' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   </head>
 
   <body>
     <!-- Navigation Bar --> 
-      <nav class="navbar navbar-toggleable-md navbar-light", style="color:white;">
-        <%= link_to root_path, class: 'logo' do %>
+      <nav class="row navbar navbar-toggleable-md navbar-light", style="color:white;">
+        <%= link_to root_path, class: 'logo ml-2' do %>
           <b style="color:#3e3666;">pic <span class="fas fa-paw"></span><br/> of the litter</b>
         <% end %>
         <% if user_signed_in? %>
@@ -47,24 +48,12 @@
       <% if current_page?(controller: 'grams', action: 'index') %>
         <div class="row subnav">
           <h5 class="offset-1 mr-2 mt-1">Breed:</h5>
-          <input class="form-control breed" type="text" placeholder="Breed" id="Breed">
-          <!-- <%= link_to 'Go', root_path(query: 'breed'), class: 'btn-edit btn ml-2', style: 'height: 30px; line-height: 0.9;' %> -->
-          <button class="btn-edit btn ml-2" onclick="getBreed();">Go</button>
+          <%= form_tag(root_path, method: :get) do %>
+            <%= text_field_tag(:query, params[:query], placeholder: "Breed", class: "form-control breed") %>
+            <%= submit_tag ("Go"), class: "btn btn-edit ml-2", style: "height: 30px; line-height: 1px" %>
+          <% end %>
         </div>
       <% end%>
-
-      <script>
-      function getBreed(){
-          // Selecting the input element and get its value 
-          var Breed = document.getElementById("Breed").value;
-          
-          // Displaying the value
-          alert(Breed);
-          var Reload = '<%= root_path %>' + '?query:' + Breed;
-          window.location.href = Reload
-      }
-      </script>
-
 
     <!-- Flash Messages -->
     <% if notice.present? %>

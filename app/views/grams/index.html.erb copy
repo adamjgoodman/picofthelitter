@@ -1,27 +1,28 @@
-<div class="col-12 text-center">
-<div class="grid">
+<div class="row">
 	<% @grams.shuffle.each do | gram | %>
-			<div class="grid-item card">
+		<div class="col-10 offset-1 col-sm-6 offset-sm-1 col-md-3 offset-md-1 ml-auto mr-auto">
+			<div class="card">
+				<div class="text-right user mb-0 mt-1">
+					<%= gram.user.username %>
+				</div>
+				<div class="text-right user mt-0 mb-1" style="color:black; font-weight: normal;">
+					<%= gram.created_at.strftime('%B %d, %Y') %>
+				</div>
 				<%= link_to gram_path(gram) do %>
 					<%= image_tag gram.picture.url, class: 'img-fluid' %>
 				<% end %>
-				<div class="col-12 mt-1 caption text-center">
+				<p class="pb-2">
 					<% if gram.message.present? %>
-						<b><%= gram.message %></b>
+						<%= gram.message %>
+						<br />
 					<% end %>
-				</div>
-				<div class="text-left user mb-0 mt-0">
-					<%= gram.user.username %>
-				</div>
-				<div class="text-left user mt-0 mb-1" style="color:black; font-weight: normal;">
-					<%= gram.created_at.strftime('%B %d, %Y') %>
-				</div>
+				</p>
 				
 				<% if gram.comments.present? %>
 					<hr class="hr_solid mt-0" />
 
 					<% gram.comments.order(id: :desc).limit(2).each do |comment| %>
-						<div class="comment text-left col-12 mt-1">
+						<div class="comment col-12 mt-2">
 							<span class="comment_user">
 								<%= comment.user.username %><br />
 							</span>
@@ -39,7 +40,7 @@
 					<% end %>
 				<% end %>
 			</div>
+		</div>
 	<% end %>
 </div>
 <br />
-</div>
