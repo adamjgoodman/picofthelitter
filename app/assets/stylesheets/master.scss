@@ -93,6 +93,10 @@ select.form-control:not([size]):not([multiple]) {
   width: 200px;
 }
 
+.form-control {
+  margin-bottom: 10px;
+}
+
 .form-inline div { 
   display: inline-block 
 }
@@ -276,7 +280,7 @@ form {
   display: flex;
 }
 
-.new_comment {
+.new_comment, .new_user, .edit_gram, .new_gram {
   display: block !important;
 }
 
