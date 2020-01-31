@@ -1,4 +1,4 @@
-$(document).ready( function() {
+$(document).on('turbolinks:load', function() {
   var elem = document.querySelector('.grid');
   var msnry = new Masonry( elem, {
     // options
