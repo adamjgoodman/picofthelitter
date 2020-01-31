@@ -3,7 +3,7 @@ class GramsController < ApplicationController
 
 	def index
 		if params[:query]
-			@grams = Gram.where(breed: params[:query])
+			@grams = Gram.where("breed like?", "%#{params[:query]}%")
 		else
 			@grams = Gram.all
 		end
