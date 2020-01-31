@@ -1,6 +1,6 @@
 <div class="col-12 ml-auto mr-auto">
 <div class="grid">
-	<% @grams.shuffle.each do | gram | %>
+	<% @grams.each do | gram | %>
 			<div class="grid-item card">
 				<%= link_to gram_path(gram) do %>
 					<%= image_tag gram.picture.url, class: 'img-fluid', style: 'min-width: 20%;' %>
