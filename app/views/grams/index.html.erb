@@ -42,4 +42,16 @@
 	<% end %>
 </div>
 <br />
+
+	<div class="col-12 col-sm-4 offset-sm-4 ml-auto mr-auto digg_pagination">
+			<div class="page_info">
+				<%= page_entries_info @grams %>
+			</div>
+			<span class="col-12 ml-auto mr-auto justify-content-center">
+				<%= will_paginate @grams, :container => false %>
+			</span>
+	</div>
+
 </div>
+
+<br />
