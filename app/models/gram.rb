@@ -4,8 +4,6 @@ class Gram < ApplicationRecord
 	belongs_to :user
 	has_many :comments
 
-	def set_success(format, opts)
-    self.success = true
-  end
+	
 
 end

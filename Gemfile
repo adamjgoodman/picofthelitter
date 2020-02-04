@@ -93,4 +93,5 @@ gem 'csv'
 
 gem 'jquery-rails'
 
-gem 'carrierwave-video'
+gem 'bootstrap-select-rails'
+

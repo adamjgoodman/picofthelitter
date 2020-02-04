@@ -3,10 +3,10 @@
 	<h2>new pic</h2>
 	<%= simple_form_for @gram do |f| %>
 		<br />
-		<%= f.input :picture %>
-		<br />
 		<%= f.input :breed %>
 		<%= f.input :message, label: 'Caption' %>
+		<%= f.input :picture %>
+		<br />
 		<%= f.submit "share pic", class: "my-btn" %>
 	<% end %>
 </div>
