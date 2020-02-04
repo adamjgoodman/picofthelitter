@@ -57,6 +57,7 @@ GEM
     bootstrap (4.0.0.alpha6)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
+    bootstrap-select-rails (1.13.8)
     builder (3.2.4)
     byebug (11.1.1)
     capybara (3.31.0)
@@ -289,6 +290,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (= 4.0.0.alpha6)
+  bootstrap-select-rails
   byebug
   capybara (>= 2.15)
   carrierwave (~> 2.0)
