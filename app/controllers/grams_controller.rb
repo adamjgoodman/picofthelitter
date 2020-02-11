@@ -3,7 +3,7 @@ class GramsController < ApplicationController
 
 	def index
 		if params[:query]
-			@grams = Gram.where("breed like?", "%#{params[:query]}%").order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
+			@grams = Gram.where("breed ILIKE ?", "%#{params[:query]}%").order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
 		else
 			@grams = Gram.order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
 		end
